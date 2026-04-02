@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+
+<div class="p-5">
+  @if(dataHistorialFunds().length > 0) {
+    <app-tables [columns]="columns()" [rows]="dataHistorialFunds()">
+    </app-tables>
+  } @else {
+    <p class="text-red-700 text-base font-medium">
+      No hay historial de fondos de inversión.
+    </p>
+  }
+</div>

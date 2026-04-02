@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<section>
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+      <h1 class="text-[2.5rem] sm:text-3xl xl:text-4xl font-bold leading-tight capitalize sm:pr-8 xl:pr-10 aos-init aos-animate">
+        {{userName()}}
+      </h1>
+    </div>
+  </div>
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+      <h2 class="text-4xl font-semibold">
+        Monto actual: {{currentAmount() | currency:'$':'symbol':'1.0-0'}}
+      </h2>
+    </div>
+
+    <div class="mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+      <h2 class="text-4xl font-semibold">
+        Total invertido: {{totalInvested() | currency:'$':'symbol':'1.0-0'}}
+      </h2>
+    </div>
+
+  </div>
+</section>

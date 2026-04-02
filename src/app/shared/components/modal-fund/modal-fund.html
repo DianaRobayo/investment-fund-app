@@ -1,0 +1,68 @@
+<div class="flex flex-col max-h-screen p-3 -m-2">
+
+  <div class="flex flex-0 items-center justify-between h-16 md:pr-3 pl-3 mt-3 mb-8 md:mb-4 text-white">
+    <div class="text-green-950 text-xl font-bold">
+      {{data.row.nameFund}}
+    </div>
+    <div class="rounded-full">
+      <button (click)="dialogRef.close()" [tabIndex]="-1"
+        class="text-green-950 font-bold py-2 px-4 rounded">
+        <mat-icon class="text-green-950">
+          close
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class=" p-3 ">
+    <form [formGroup]="fundsForm">
+      @if (data.listFunds && data.listFunds.length > 0) {
+        <label for="idFund">Fondo: </label>
+        <select id="idFund" formControlName="idFund" class="w-full border-2 border-solid">
+          <option value="">Seleccione un fondo</option>
+          @for (fund of data.listFunds; track fund.idFund) {
+            <option [value]="fund.idFund">
+              {{fund.nameFund}}
+            </option>
+          }
+        </select>
+
+        @if(fundsForm.invalid && (fundsForm.dirty || fundsForm.touched)){
+          <div >
+            @if (fundsForm.controls.idFund.errors?.['required']) {
+              <small class="text-red-700 text-md font-medium">
+                El fondo es obligatorio.
+              </small>
+            }
+          </div>
+        }
+      }
+
+      <label for="minAmount">Valor Unitario: </label>
+      <input id="minAmount" type="number" formControlName="minAmount"
+        class="w-full border-2 border-solid" readonly />
+
+      <label for="unitsFund">Unidades: </label>
+      <input id="unitsFund" type="number" formControlName="unitsFund"
+        class="w-full border-2 border-solid" />
+        @if(fundsForm.invalid && (fundsForm.dirty || fundsForm.touched)){
+          <div >
+            @if (fundsForm.controls.unitsFund.errors?.['required']) {
+              <small class="text-red-700 text-md font-medium">
+                El número de unidades es obligatorio.
+              </small>
+            }
+          </div>
+        }
+
+      <label for="total">Total: </label>
+      <input id="total" type="number" formControlName="total" class="w-full border-2 border-solid" readonly />
+    </form>
+
+    <div class="">
+      <app-buttons [name]="'Comprar'" (clickButton)="buyFund()"
+        [disabled]="fundsForm.invalid">
+      </app-buttons>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<app-header #header></app-header>
+<div class="p-5">
+  @if(listFunds().length > 0) {
+    <app-tables [columns]="columns()" [rows]="listFunds()"
+      (rowSelected)="onRowSelected($event)">
+    </app-tables>
+  } @else {
+    <p class="text-red-700 text-base font-medium">
+      No hay información de fondos de inversión.
+    </p>
+  }
+</div>

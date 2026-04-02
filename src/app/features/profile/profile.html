@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+
+<div class=" p-3 ">
+  <form [formGroup]="profileForm">
+
+    <label for="userName">Nombres: </label>
+    <input id="userName" type="text" formControlName="userName"
+      class="w-full border-2 border-solid" />
+    <div >
+      @if (profileForm.controls.userName.errors?.['required']) {
+        <small class="text-red-700 text-md font-medium">
+          El nombre es obligatorio.
+        </small>
+      }
+    </div>
+
+    <label for="lastName">Apellidos: </label>
+    <input id="lastName" type="text" formControlName="lastName"
+      class="w-full border-2 border-solid" />
+    <div >
+      @if (profileForm.controls.lastName.errors?.['required']) {
+        <small class="text-red-700 text-md font-medium">
+          El apellido es obligatorio.
+        </small>
+      }
+    </div>
+
+    <label for="email">Correo electrónico: </label>
+    <input id="email" type="email" formControlName="email"
+      class="w-full border-2 border-solid" />
+    <div >
+      @if (profileForm.controls.email.errors?.['required']) {
+        <small class="text-red-700 text-md font-medium">
+          El correo electrónico es obligatorio.
+        </small>
+      }
+      @if (profileForm.controls.email.errors?.['pattern']) {
+        <small class="text-red-700 text-md font-medium">
+          El correo electrónico no es válido.
+        </small>
+      }
+    </div>
+
+    <label for="cellphone">Teléfono celular: </label>
+    <input id="cellphone" type="text" formControlName="cellphone"
+      maxlength="10" minlength="10"
+      class="w-full border-2 border-solid" />
+    <div >
+      @if (profileForm.controls.cellphone.errors?.['required']) {
+        <small class="text-red-700 text-md font-medium">
+          El número de celular es obligatorio.
+        </small>
+      }
+      @if (profileForm.controls.cellphone.errors?.['pattern']) {
+        <small class="text-red-700 text-md font-medium">
+          El número de celular no es válido.
+        </small>
+      }
+    </div>
+
+    <label class="mt-5" for="optNotification">
+      ¿Por cuál medio desea recibir las notificación?
+    </label>
+    <br><br>
+    <mat-radio-group aria-label="Seleccionar opción"
+      [(ngModel)]="optNotification" [ngModelOptions]="{standalone: true}">
+      <mat-radio-button [value]="false">Correo electrónico</mat-radio-button>
+      <mat-radio-button [value]="true">Celular</mat-radio-button>
+    </mat-radio-group>
+  </form>
+
+  <div class="">
+    <app-buttons [name]="buttonName()" (clickButton)="saveUser()">
+    </app-buttons>
+  </div>
+</div>
