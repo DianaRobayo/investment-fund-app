@@ -8,22 +8,47 @@
     </div>
   </div>
   <div class="grid md:grid-cols-3 gap-4 justify-items-center">
-    <div class="mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
-      <h2 class="text-xl md:text-xl text-cyan-900 font-semibold">
-        Monto actual: {{currentAmount() | currency:'COP':'symbol-narrow':'1.0-0'}}
-      </h2>
+    <div class="flex flex-row md:flex-col">
+      <div class="mt-12 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+        <h2 class="text-xl md:text-2xl text-emerald-700 font-medium">
+          Monto actual:
+        </h2>
+      </div>
+      <div class="mt-12 xl:mt-4 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+        <span class="text-emerald-900 font-bold text-2xl md:text-4xl">
+          {{currentAmount() | currency:'COP':'symbol-narrow':'1.0-0'}}
+        </span>
+      </div>
     </div>
 
-    <div class="mt-2 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
-      <h2 class="text-xl md:text-xl text-cyan-900 font-semibold">
-        Total disponible: {{currentAmount() - totalInvested() | currency:'COP':'symbol-narrow':'1.0-0'}}
-      </h2>
+    <div class="flex flex-row md:flex-col">
+      <div class="mt-2 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+        <h2 class="text-xl md:text-2xl text-emerald-700 font-medium">
+          Total disponible:
+        </h2>
+      </div>
+      <div class="mt-2 xl:mt-4 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+        <span class="text-emerald-900 font-bold text-2xl md:text-4xl">
+          {{currentAmount() - totalInvested() | currency:'COP':'symbol-narrow':'1.0-0'}}
+        </span>
+      </div>
     </div>
 
-    <div class="mt-2 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
-      <h2 class="text-xl md:text-xl text-cyan-900 font-semibold">
-        Total invertido: {{totalInvested() | currency:'COP':'symbol-narrow':'1.0-0'}}
-      </h2>
+    <div class="flex flex-row md:flex-col">
+      <div class="mt-2 xl:mt-10 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+        <h2 class="text-xl md:text-2xl text-emerald-700 font-medium">
+          Total invertido:
+        </h2>
+      </div>
+      <div class="mt-2 xl:mt-4 space-y-4 sm:space-y-6 px-6 text-center sm:text-left">
+        <span class="text-emerald-900 font-bold text-2xl md:text-4xl">
+          {{totalInvested() | currency:'COP':'symbol-narrow':'1.0-0'}}
+        </span>
+      </div>
     </div>
+
+
+
+
   </div>
 </section>

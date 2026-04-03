@@ -49,10 +49,14 @@ export class Header {
           }
         }
       }, error: (error) => {
-        console.error('Error loading user', error);
         this.userName.set('');
         this.currentAmount.set(0);
 
+        Swal.fire({
+          title: 'Error',
+          text: `No se pudo cargar la información del usuario por ${error}`,
+          icon: 'error'
+        });
       }
     });
   }

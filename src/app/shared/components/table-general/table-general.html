@@ -19,9 +19,14 @@
               </mat-icon>
             </button>
           </td>
+
         } @else {
           <td mat-cell *matCellDef="let element">
-            {{element[column.field]}}
+            @if(isInteger(element[column.field]) && column.isCurrency) {
+              {{element[column.field] | currency:'COP':'symbol-narrow':'1.0-0'}}
+            } @else {
+               {{element[column.field]}}
+            }
           </td>
         }
       </ng-container>

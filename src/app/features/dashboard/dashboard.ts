@@ -37,16 +37,16 @@ export class Dashboard implements OnInit {
     { field: 'idFund', title: 'ID' },
     { field: 'nameFund', title: 'Nombre del fondo' },
     { field: 'category', title: 'Categoría' },
-    { field: 'minAmount', title: 'Valor de apertura' },
+    { field: 'minAmount', title: 'Valor de apertura', isCurrency: true },
     // { field: 'update', title: 'Editar', icon: 'edit', colorButton: 'blue' },
     { field: 'delete', title: 'Eliminar', icon: 'delete', colorButton: 'red' },
   ]);
 
-  readonly relationUserFund = signal<RelationUserFund[]>([]);
+  readonly relationUserFund = signal<RelationUserFund[]>([]); // Arreglo de ids relacion fondos y usuarios
   readonly listFunds = signal<ListFunds[]>([]);
-  readonly unionRelationUserFund = signal<UnionRelationUserFund[]>([]);
-  readonly associatedListFunds = signal<ListFunds[]>([]);
-  readonly excludedListFunds = signal<ListFunds[]>([]);
+  readonly unionRelationUserFund = signal<UnionRelationUserFund[]>([]); //Union de la información de fondos con usuarios
+  readonly associatedListFunds = signal<ListFunds[]>([]); // Lista de fondos asociados al usuario
+  readonly excludedListFunds = signal<ListFunds[]>([]); // Lista de fondos no asociados al usuario
   readonly idUser = signal<string>('FZn3eAOPqyU'); // ID de usuario fijo para pruebas
   readonly temporaryAmount = signal<number>(0); // Valor temporal de monto utilizado
 
@@ -62,7 +62,6 @@ export class Dashboard implements OnInit {
 
   ngOnInit() {
     this.getDataUserFunds();
-    // this.verifyCurrentAmount();
     this.fundDataService.updateAvailable();
   }
 
@@ -179,7 +178,7 @@ export class Dashboard implements OnInit {
   }
 
   /***
-   * Método que suscribe a un fondo de inversion
+   * Método que suscribe el usuario a un fondo de inversión
    **/
   addFunds() {
     const dialogRef = this.dialog.open(ModalFund, {

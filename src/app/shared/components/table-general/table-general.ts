@@ -2,18 +2,26 @@ import { AfterViewInit, Component, computed, effect, input, output, ViewChild } 
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { NgClass, TitleCasePipe } from '@angular/common';
+import { CurrencyPipe, NgClass, TitleCasePipe } from '@angular/common';
 
 type TableColumn = {
   field: string;
   title: string;
   icon?: string;
   colorButton?: string;
+  isCurrency?: boolean;
 };
 
 @Component({
   selector: 'app-tables',
-  imports: [MatTableModule, MatPaginatorModule, MatIconModule, TitleCasePipe, NgClass],
+  imports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatIconModule,
+    TitleCasePipe,
+    CurrencyPipe,
+    NgClass
+  ],
   templateUrl: './table-general.html',
   styleUrl: './table-general.sass',
 })
@@ -37,7 +45,6 @@ export class TableGeneral implements AfterViewInit {
     });
   }
 
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     if (this.paginator !== null) {
@@ -46,6 +53,11 @@ export class TableGeneral implements AfterViewInit {
   }
 
   actionButton(element: string, column: string): void {
-    this.rowSelected.emit({element, column});
+    this.rowSelected.emit({ element, column });
+  }
+
+  // Metodo que valida si el valor es entero
+  isInteger(value: any): boolean {
+    return Number.isInteger(value);
   }
 }

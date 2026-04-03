@@ -23,8 +23,9 @@ export class InvestmentFunds {
     { field: 'idFund', title: 'ID' },
     { field: 'nameFund', title: 'Nombre del fondo' },
     { field: 'category', title: 'Categoría' },
-    { field: 'minAmount', title: 'Monto mínimo' }
+    { field: 'minAmount', title: 'Monto mínimo', isCurrency: true }
   ]);
+
   listFundsService = inject(ListFundService);
   readonly listFunds = signal<ListFunds[]>([]);
 

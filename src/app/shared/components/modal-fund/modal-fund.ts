@@ -61,7 +61,7 @@ export class ModalFund {
   constructor() {
     this.dialogRef.disableClose = true;
     this.dialogRef.updateSize('700px', '300px');
-    this.setDataForm();
+    this.setterDataForm();
     this.changeFund();
 
     effect(() => {
@@ -80,7 +80,7 @@ export class ModalFund {
     this.dialogRef.close();
   }
 
-  setDataForm(): void {
+  setterDataForm(): void {
     if (this.data.type === 'add') {
       this.fundsForm.controls.idFund.addValidators(Validators.required);
     } else {
@@ -114,18 +114,18 @@ export class ModalFund {
   /***
    * Metodo que calcula el valor total dependiendo de las unidades agregadas
   **/
-  calculateTotal() {
-    // this.fundsForm.controls.unitsFund.valueChanges
-    //   .pipe(
-    //     startWith(this.fundsForm.value.unitsFund ?? 0),
-    //     takeUntilDestroyed()
-    //   ).subscribe((res) => {
-    //     if (res) {
-    //       const total = Number(res) * Number(this.fundsForm.value.minAmount);
-    //       this.fundsForm.controls.total.setValue(total);
-    //     }
-    //   });
-  }
+/*   calculateTotal() {
+    this.fundsForm.controls.unitsFund.valueChanges
+      .pipe(
+        startWith(this.fundsForm.value.unitsFund ?? 0),
+        takeUntilDestroyed()
+      ).subscribe((res) => {
+        if (res) {
+          const total = Number(res) * Number(this.fundsForm.value.minAmount);
+          this.fundsForm.controls.total.setValue(total);
+        }
+      });
+  } */
 
   /***
    * Metodo que valida si el usuario tiene fondos suficientes para adquirir
@@ -189,7 +189,7 @@ export class ModalFund {
     // const unitsFund = Number(this.fundsForm.value.unitsFund);
     // const totalFund = Number(this.fundsForm.value.total);
 
-/*     if (this.data.type === 'edit') {
+    /* if (this.data.type === 'edit') {
       this.updateData(idUser, idFund, unitsFund, totalFund);
     } else  */
     if (this.data.type === 'delete') {
@@ -201,7 +201,7 @@ export class ModalFund {
     this.addRegisterHistory();
   }
 
-  updateData(idUser: string, idFund: number, unitsFund: number, totalFund: number) {
+  updateData(idUser: string, idFund: number) {
     const rowId = this.data.row.id;
     if (!rowId) return;
 
@@ -260,7 +260,7 @@ export class ModalFund {
   }
 
   addRegisterHistory() {
-    const subscriptionType = this.data.type === 'delete' ? 'Cancelación' : 'Suscripción';
+    const subscriptionType = this.data.type === 'delete' ? '❌ Cancelación' : '✅ Suscripción';
     const bodyHistory: HistoryFund = {
       idUser: this.data.row.idUser,
       idFund: Number(this.fundsForm.value.idFund),

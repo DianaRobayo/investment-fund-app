@@ -16,10 +16,11 @@ export class HistorialFunds {
 
   readonly columns = signal([
     { field: 'nameFund', title: 'Nombre del fondo' },
-    { field: 'amountFund', title: 'Total de suscripción' },
+    { field: 'amountFund', title: 'Total de suscripción', isCurrency: true },
     { field: 'date', title: 'Fecha' },
     { field: 'subscription', title: 'Suscripción' },
   ]);
+
   readonly dataHistorialFunds = signal<HistoryFund[]>([]);
   historyFundService = inject(HistoryFundService);
 

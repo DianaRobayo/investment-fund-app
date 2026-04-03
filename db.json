@@ -38,9 +38,9 @@
   ],
   "users": [
     {
-      "userName": "Diana",
-      "lastName": "Robayo",
-      "email": "d@gmail.com",
+      "userName": "Maria Luisa",
+      "lastName": "Montoya Sanchez",
+      "email": "mari45.23@gmail.com",
       "cellphone": "3118495408",
       "method": false,
       "currentAmount": 500000,
@@ -55,105 +55,69 @@
     },
     {
       "idUser": "FZn3eAOPqyU",
-      "idFund": 1,
-      "id": "zAXzmt8mnDQ"
+      "idFund": 2,
+      "id": "tXY1XltUS1M"
     },
     {
       "idUser": "FZn3eAOPqyU",
-      "idFund": 2,
-      "id": "zAXzmt8mnD2"
+      "idFund": 3,
+      "id": "koLnIXR7iyk"
     }
   ],
   "historyFunds": [
     {
       "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T03:38:43.020Z",
-      "subscription": "Cancelación",
-      "id": "0j86Xs_6wF4"
+      "idFund": 1,
+      "nameFund": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amountFund": 75000,
+      "date": "2026-04-03T17:35:57.470Z",
+      "subscription": "✅ Suscripción",
+      "id": "trUwRGGNJb0"
     },
     {
       "idUser": "FZn3eAOPqyU",
       "idFund": 4,
       "nameFund": "FDO-ACCIONES",
       "amountFund": 250000,
-      "date": "2026-04-03T03:41:05.326Z",
-      "subscription": "Suscripción",
-      "id": "AlTY0mfpk24"
+      "date": "2026-04-03T17:36:35.368Z",
+      "subscription": "✅ Suscripción",
+      "id": "92eKUAqoCgE"
     },
     {
       "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T03:42:25.587Z",
-      "subscription": "Suscripción",
-      "id": "jjj_ODlI4js"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T03:47:30.259Z",
-      "subscription": "Suscripción",
-      "id": "WYLUoXqu5xI"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T03:48:36.220Z",
-      "subscription": "Suscripción",
-      "id": "0a65PFpsreE"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T03:49:37.950Z",
-      "subscription": "Suscripción",
-      "id": "y6ZJV7_jdak"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T03:52:56.391Z",
-      "subscription": "Suscripción",
-      "id": "1B3eMIDjckQ"
+      "idFund": 2,
+      "nameFund": "FPV_BTG_PACTUAL_ECOPETROL",
+      "amountFund": 125000,
+      "date": "2026-04-03T17:36:52.386Z",
+      "subscription": "✅ Suscripción",
+      "id": "kB9Pc_og-uo"
     },
     {
       "idUser": "FZn3eAOPqyU",
       "idFund": 3,
       "nameFund": "DEUDAPRIVADA",
       "amountFund": 50000,
-      "date": "2026-04-03T03:53:25.045Z",
-      "subscription": "Suscripción",
-      "id": "bB6V4pM1b9k"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 3,
-      "nameFund": "DEUDAPRIVADA",
-      "amountFund": 50000,
-      "date": "2026-04-03T03:55:49.971Z",
-      "subscription": "Cancelación",
-      "id": "BLNGl3bDzMs"
+      "date": "2026-04-03T17:37:16.768Z",
+      "subscription": "✅ Suscripción",
+      "id": "7IfV0uxwJDs"
     },
     {
       "idUser": "FZn3eAOPqyU",
       "idFund": 4,
       "nameFund": "FDO-ACCIONES",
       "amountFund": 250000,
-      "date": "2026-04-03T03:56:01.312Z",
-      "subscription": "Cancelación",
-      "id": "N5zsuYVraYI"
+      "date": "2026-04-03T17:37:43.990Z",
+      "subscription": "❌Cancelación",
+      "id": "QxXHPBseIIE"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 1,
+      "nameFund": "FPV_BTG_PACTUAL_RECAUDADORA",
+      "amountFund": 75000,
+      "date": "2026-04-03T18:39:21.750Z",
+      "subscription": "❌ Cancelación",
+      "id": "g9vDKmOujd4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

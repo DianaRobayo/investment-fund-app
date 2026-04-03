@@ -91,6 +91,9 @@ export class Profile {
     }
   }
 
+  /***
+   * Metodo que permite guardar y actualizar la información del usuario
+  **/
   saveUser() {
     this.profileForm.controls.method.setValue(!!this.optNotification);
 
@@ -121,6 +124,10 @@ export class Profile {
     }
   }
 
+  /***
+   * Metodo para crear un nuevo usuario.
+   * @param body información del usuario a crear de tipo Users
+   */
   createUser(body: Users) {
     this.userService.addUser(body).subscribe({
       next: (res) => {
@@ -141,6 +148,11 @@ export class Profile {
     });
   }
 
+  /***
+   * Metodo para actualizar un usuario existente.
+   * @param id Id del usuario
+   * @param body información del usuario de tipo Users
+   */
   updateUser(id: string, body: Users) {
     this.userService.updateUser(id, body).subscribe({
       next: (res) => {
@@ -154,7 +166,7 @@ export class Profile {
       }, error: (error) => {
         Swal.fire({
           icon: 'error',
-          title: `Se presento error ${error} al guardar el usuario.`
+          title: `Se presentó error ${error} al guardar el usuario.`
         });
         this.profileForm.reset();
       }

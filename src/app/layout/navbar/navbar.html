@@ -1,10 +1,9 @@
-<nav id="navbar" aria-label="Navegación principal" class="relative z-10 w-full text-neutral-800 bg-green-900/50">
+<nav id="navbar" aria-label="Navegación principal" class="relative z-10 w-full text-neutral-800 bg-emerald-900/50">
   <div class="flex flex-col max-w-7-xl px-8 mx-auto lg:items-center lg:justify-between lg:flex-row p-2">
     <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 xl:gap-14">
       <div class="w-full flex flex-row items-center justify-between lg:justify-center py-4">
-        <!-- <div> -->
-          <img src="/icon-investment.svg" alt="Inicio" class="w-20 xl:w-20">
-        <!-- </div> -->
+        <img src="/icon-investment.svg" alt="Inicio" class="w-20 xl:w-20">
+
         <button type="button" aria-label="Abrir menú"
           (click)="toggleMobileMenu()"
           class="rounded-lg lg:hidden focus:outline-none focus:shadow-outline">
@@ -17,6 +16,7 @@
           </span>
         </button>
       </div>
+
       <ul
         [class.hidden]="!isMobileMenuOpen()"
         [class.flex]="isMobileMenuOpen()"
