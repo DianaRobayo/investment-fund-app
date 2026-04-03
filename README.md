@@ -1,59 +1,105 @@
-# InvestmentFundApp
+# App de fondos de inversión
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.22.
+## 📋 Tabla de Contenidos
+- Descripción
+- Tecnologías
+- Requisitos Previos
+- Instalación
+- Estructura del Proyecto
 
-## Development server
+## 🚀 Descripción
 
-To start a local development server, run:
+La aplicación esta construida en Angular v20, teniendo como funcionalidad agregar y eliminar fondos de inversión relacionadas al usuario.
 
+## 🛠️ Tecnologías
+- Angular
+- Angular Material
+- Tailwind CSS
+- Json server
+- Sweetalert2
+
+## 📦 Requisitos Previos (Modificar cada vez que se realice una actualización)
+- Node.js >= v24.14.1
+- npm >= 11.11.0
+- Angular CLI >= 20.3.22
+
+## 🔧 Instalación
+
+### 1. Clonar el repositorio
 ```bash
-ng serve
+git clone https://github.com/DianaRobayo/investment-fund-app.git
+cd investment-fund-app
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### 2. Instalar dependencias
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+### 3. Compilar proyecto
 ```bash
-ng generate --help
+# Servidor de desarrollo (puerto 4200)
+npm run start
+# o
+ng serve -o
 ```
 
-## Building
-
-To build the project run:
-
+### 4. Ejecutar json-server
+Se debe ejecutar simultaneamente a la compilación del proyecto el siguiente comando
 ```bash
-ng build
+npx json-server --watch db.json
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🗂️ Estructura del Proyecto
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```text
+investment-fund-app/
+├── .angular/
+├── .vscode/
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── app/
+│   │   ├── core/
+│   │   │   └── services/
+│   │   │       ├── fund-data-service.ts
+│   │   │       ├── funds-service.ts
+│   │   │       ├── history-fund-service.ts
+│   │   │       ├── list-fund-service.ts
+│   │   │       └── user-service.ts
+│   │   ├── features/
+│   │   │   ├── dashboard/
+│   │   │   ├── historial-funds/
+│   │   │   ├── investment-funds/
+│   │   │   └── profile/
+│   │   ├── layout/
+│   │   │   ├── footer/
+│   │   │   ├── header/
+│   │   │   └── navbar/
+│   │   ├── shared/
+│   │   │   ├── components/
+│   │   │   │   ├── buttons/
+│   │   │   │   ├── modal-fund/
+│   │   │   │   └── table-general/
+│   │   │   └── models/
+│   │   │       ├── fund.ts
+│   │   │       ├── historyFund.ts
+│   │   │       ├── listFunds.ts
+│   │   │       ├── relationUserFund.ts
+│   │   │       └── users.ts
+│   │   ├── app.config.server.ts
+│   │   ├── app.config.ts
+│   │   ├── app.routes.server.ts
+│   │   ├── app.routes.ts
+│   │   └── app.ts
+│   ├── index.html
+│   ├── main.ts
+│   ├── main.server.ts
+│   └── server.ts
+├── angular.json
+├── db.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── tsconfig.json
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
