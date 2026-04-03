@@ -47,6 +47,7 @@ export class Profile {
       Validators.required,
       Validators.pattern('^3[0,1,2,3,5][0-9][0,1,2,3,4,5,6,7,8,9][0-9][0-9][0-9][0-9][0-9][0-9]*$')
     ]),
+    currentAmount: new FormControl<number>(500000),
     method: new FormControl<boolean>(false, [Validators.required])
   });
 
@@ -101,7 +102,8 @@ export class Profile {
         lastName: formUser.lastName ?? '',
         email: formUser.email ?? '',
         cellphone: formUser.cellphone ?? 0,
-        method: formUser.method ?? false
+        method: formUser.method ?? false,
+        currentAmount: formUser.currentAmount ?? 500000
       }
 
       // Verifica si el usuario ya existe

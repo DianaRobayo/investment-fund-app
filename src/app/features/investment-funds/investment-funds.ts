@@ -1,17 +1,19 @@
-import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Navbar } from '../../layout/navbar/navbar';
 import { TableGeneral } from '../../shared/components/table-general/table-general';
 import { ListFundService } from '../../core/services/list-fund-service';
 import { ListFunds } from '../../shared/models/listFunds';
 import Swal from 'sweetalert2';
+import { Footer } from "../../layout/footer/footer";
 
 
 @Component({
   selector: 'app-investment-funds',
   imports: [
     Navbar,
-    TableGeneral
-  ],
+    TableGeneral,
+    Footer
+],
   templateUrl: './investment-funds.html',
   styleUrl: './investment-funds.sass',
 })

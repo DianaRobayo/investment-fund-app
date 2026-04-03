@@ -1,5 +1,12 @@
 <app-header #header></app-header>
-<div class="p-5">
+
+<div class="mx-auto w-full max-w-7xl rounded-2xl border border-emerald-100 bg-white/90 p-6 shadow-lg backdrop-blur sm:p-8 mb-8 mt-8">
+  <div class="mb-3 pb-3">
+    <h2 class="text-2xl font-bold text-emerald-900">
+      Listado de fondos de inversión
+    </h2>
+  </div>
+
   <div class="flex justify-end mb-8">
     <div class="mx-2">
       <app-buttons [icon]="'add'" (clickButton)="addFunds()"></app-buttons>

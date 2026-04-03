@@ -60,7 +60,7 @@ export class ModalFund {
 
   constructor() {
     this.dialogRef.disableClose = true;
-    this.dialogRef.updateSize('600px', '400px');
+    this.dialogRef.updateSize('700px', '300px');
     this.setDataForm();
     this.changeFund();
 

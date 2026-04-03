@@ -1,6 +1,12 @@
 <app-navbar></app-navbar>
 
-<div class="p-5">
+<div class="mx-auto w-full max-w-7xl rounded-2xl border border-emerald-100 bg-white/90 p-6 shadow-lg backdrop-blur sm:p-8 mb-8">
+  <div class="mb-6 pb-4">
+    <h2 class="text-2xl font-bold text-emerald-900">
+      Historial de los movimientos en los fondos de inversión
+    </h2>
+  </div>
+
   @if(dataHistorialFunds().length > 0) {
     <app-tables [columns]="columns()" [rows]="dataHistorialFunds()">
     </app-tables>
@@ -10,3 +16,5 @@
     </p>
   }
 </div>
+
+<app-footer></app-footer>

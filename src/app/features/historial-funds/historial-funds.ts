@@ -4,10 +4,11 @@ import { HistoryFundService } from '../../core/services/history-fund-service';
 import { HistoryFund } from '../../shared/models/historyFund';
 import { Navbar } from "../../layout/navbar/navbar";
 import Swal from 'sweetalert2';
+import { Footer } from "../../layout/footer/footer";
 
 @Component({
   selector: 'app-historial-funds',
-  imports: [TableGeneral, Navbar],
+  imports: [TableGeneral, Navbar, Footer],
   templateUrl: './historial-funds.html',
   styleUrl: './historial-funds.sass',
 })
