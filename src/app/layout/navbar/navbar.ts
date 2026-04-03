@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -8,5 +8,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './navbar.sass',
 })
 export class Navbar {
+  readonly isMobileMenuOpen = signal(false);
+
+  toggleMobileMenu(): void {
+    this.isMobileMenuOpen.update((value) => !value);
+  }
 
 }

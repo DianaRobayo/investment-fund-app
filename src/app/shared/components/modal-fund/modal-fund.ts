@@ -81,7 +81,6 @@ export class ModalFund {
   }
 
   setDataForm(): void {
-    console.log('this.data.row', this.data)
     if (this.data.type === 'add') {
       this.fundsForm.controls.idFund.addValidators(Validators.required);
     } else {
@@ -273,9 +272,7 @@ export class ModalFund {
 
     this.historyFundService.addHistoryFund(bodyHistory).subscribe({
       next: (res) => {
-        console.log('update successfully', res);
       }, error: (error) => {
-        console.error('Error updating fund', error);
       }
     });
   }

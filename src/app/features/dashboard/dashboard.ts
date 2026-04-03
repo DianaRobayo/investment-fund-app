@@ -13,6 +13,7 @@ import { FundDataService } from '../../core/services/fund-data-service';
 import { Buttons } from "../../shared/components/buttons/buttons";
 import { RelationUserFund, UnionRelationUserFund } from '../../shared/models/relationUserFund';
 import Swal from 'sweetalert2';
+import { Footer } from "../../layout/footer/footer";
 
 @Component({
   selector: 'app-dashboard',
@@ -23,8 +24,9 @@ import Swal from 'sweetalert2';
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    MatButtonModule
-  ],
+    MatButtonModule,
+    Footer
+],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.sass',
 })

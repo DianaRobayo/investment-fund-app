@@ -33,8 +33,6 @@ export class TableGeneral implements AfterViewInit {
 
   constructor() {
     effect(() => {
-      console.log('displayedColumns', this.displayedColumns());
-      console.log('rows', this.rows());
       this.dataSource.data = this.rows();
     });
   }

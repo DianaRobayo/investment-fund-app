@@ -43,23 +43,6 @@ export class FundDataService {
     });
   }
 
-  // /* Actualiza el valor actual de las suscripciones segun el usuario */
-  // getTotalInvested(idUser: string = 'FZn3eAOPqyU'): void {
-  //   this.getFundByIdUser(idUser).subscribe({
-  //     next: (res) => {
-  //       if (res) {
-  //         console.log('xxx', res)
-  //         // const total = res.reduce((acc, item) => acc + (item.totalFund ?? 0), 0);
-  //         // console.log('total', total);
-  //         // this.currentFundValueSignal.set(total);
-  //         // this.updateAvailable(idUser);
-  //       }
-  //     }, error: (error) => {
-  //       console.error('Error data user', error);
-  //     }
-  //   });
-  // }
-
   /* Obtiene la relación de fondos por usuario */
   getDataUserByFund(idUser: string, idFund: number): void {
     this.getRelationFundByIdUser(idUser, idFund).subscribe({

@@ -1,11 +1,14 @@
-<nav id="navbar" class="relative z-10 w-full text-neutral-800">
-  <div class="flex flex-col max-w-7-xl px-8 mx-auto lg:items-center lg:justify-between lg:flex-row py-4">
-    <div class="flex flex-col lg:flex-row items-center space-x-4 xl:space-x-8">
-      <div class="w-full flex flex-row items-center justify-between py-6">
-        <div><img src="/_nuxt/img/nefa.37ff23e.svg" alt="Inicio" class="w-24 xl:w-28"></div>
-        <button
+<nav id="navbar" aria-label="Navegación principal" class="relative z-10 w-full text-neutral-800 bg-green-900/50">
+  <div class="flex flex-col max-w-7-xl px-8 mx-auto lg:items-center lg:justify-between lg:flex-row p-2">
+    <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 xl:gap-14">
+      <div class="w-full flex flex-row items-center justify-between lg:justify-center py-4">
+        <!-- <div> -->
+          <img src="/icon-investment.svg" alt="Inicio" class="w-20 xl:w-20">
+        <!-- </div> -->
+        <button type="button" aria-label="Abrir menú"
+          (click)="toggleMobileMenu()"
           class="rounded-lg lg:hidden focus:outline-none focus:shadow-outline">
-          <span aria-hidden="true" role="img"
+          <span aria-hidden="true"
             class="material-design-icon segment-icon">
             <svg fill="currentColor" width="24" height="24"
               viewBox="0 0 24 24" class="material-design-icon__svg">
@@ -15,32 +18,31 @@
         </button>
       </div>
       <ul
-        class="w-full h-auto flex flex-col grow lg:items-center pb-4 lg:pb-0 lg:justify-end lg:flex-row origin-top duration-300 xl:space-x-2 space-y-3 lg:space-y-0 lg:flex">
-        <li class="w-full">
+        [class.hidden]="!isMobileMenuOpen()"
+        [class.flex]="isMobileMenuOpen()"
+        class="w-full h-auto hidden flex-col grow lg:w-auto lg:grow-0 lg:items-center pb-4 lg:pb-0 lg:justify-end lg:flex-row lg:flex-nowrap origin-top duration-300 space-y-3 lg:space-y-0 lg:space-x-6 xl:space-x-10 lg:flex">
+        <li class="w-full lg:w-auto lg:flex-none">
           <a routerLink="/dashboard"
-            class="md:px-4 py-2 text-base bg-transparent rounded-lg text-[#434855] hover:text-blue-950 focus:outline-none focus:shadow-outline">
+            class="inline-flex whitespace-nowrap md:px-4 py-2 text-base bg-transparent rounded-lg text-[#1e3f3c] hover:text-green-950 focus:outline-none focus:shadow-outline">
             Inicio
           </a>
         </li>
-        <li class="w-full"><a routerLink="/profile"
-            class="md:px-4 py-2 text-base bg-transparent rounded-lg text-[#434855] hover:text-blue-950 focus:outline-none focus:shadow-outline">
+        <li class="w-full lg:w-auto lg:flex-none"><a routerLink="/profile"
+            class="inline-flex whitespace-nowrap md:px-4 py-2 text-base bg-transparent rounded-lg text-[#1e3f3c] hover:text-green-950 focus:outline-none focus:shadow-outline">
             Usuario
           </a>
         </li>
-        <li class="w-full"><a routerLink="/investment-funds"
-            class="md:px-4 py-2 text-base bg-transparent rounded-lg text-[#434855] hover:text-blue-950 focus:outline-none focus:shadow-outline">
+        <li class="w-full lg:w-auto lg:flex-none"><a routerLink="/investment-funds"
+            class="inline-flex whitespace-nowrap md:px-4 py-2 text-base bg-transparent rounded-lg text-[#1e3f3c] hover:text-green-950 focus:outline-none focus:shadow-outline">
             Fondos de inversión
           </a>
         </li>
-        <li class="w-full"><a routerLink="/history"
-            class="md:px-4 py-2 text-base bg-transparent rounded-lg text-[#434855] hover:text-blue-950 focus:outline-none focus:shadow-outline">
+        <li class="w-full lg:w-auto lg:flex-none"><a routerLink="/history"
+            class="inline-flex whitespace-nowrap md:px-4 py-2 text-base bg-transparent rounded-lg text-[#1e3f3c] hover:text-green-950 focus:outline-none focus:shadow-outline">
             Historial
           </a>
         </li>
-
-
       </ul>
     </div>
   </div>
 </nav>
-

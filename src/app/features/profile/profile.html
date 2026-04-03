@@ -1,76 +1,102 @@
 <app-navbar></app-navbar>
 
-<div class=" p-3 ">
-  <form [formGroup]="profileForm">
-
-    <label for="userName">Nombres: </label>
-    <input id="userName" type="text" formControlName="userName"
-      class="w-full border-2 border-solid" />
-    <div >
-      @if (profileForm.controls.userName.errors?.['required']) {
-        <small class="text-red-700 text-md font-medium">
-          El nombre es obligatorio.
-        </small>
-      }
+<section class="px-4 py-6 sm:px-6 lg:px-8">
+  <div class="mx-auto w-full max-w-3xl rounded-2xl border border-emerald-100 bg-white/90 p-6 shadow-lg backdrop-blur sm:p-8">
+    <div class="mb-6 border-b border-emerald-100 pb-4">
+      <h2 class="text-2xl font-bold text-emerald-900">
+        Perfil de usuario
+      </h2>
     </div>
 
-    <label for="lastName">Apellidos: </label>
-    <input id="lastName" type="text" formControlName="lastName"
-      class="w-full border-2 border-solid" />
-    <div >
-      @if (profileForm.controls.lastName.errors?.['required']) {
-        <small class="text-red-700 text-md font-medium">
-          El apellido es obligatorio.
-        </small>
-      }
+    <form [formGroup]="profileForm" class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div class="md:col-span-1">
+        <label for="userName" class="mb-2 block text-sm font-semibold text-emerald-900">
+          Nombres
+        </label>
+        <input id="userName" type="text" formControlName="userName"
+          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200" />
+        <div class="mt-1 min-h-5">
+          @if (profileForm.controls.userName.errors?.['required']) {
+            <small class="text-sm font-medium text-red-700">
+              El nombre es obligatorio.
+            </small>
+          }
+        </div>
+      </div>
+
+      <div class="md:col-span-1">
+        <label for="lastName" class="mb-2 block text-sm font-semibold text-emerald-900">
+          Apellidos
+        </label>
+        <input id="lastName" type="text" formControlName="lastName"
+          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200" />
+        <div class="mt-1 min-h-5">
+          @if (profileForm.controls.lastName.errors?.['required']) {
+            <small class="text-sm font-medium text-red-700">
+              El apellido es obligatorio.
+            </small>
+          }
+        </div>
+      </div>
+
+      <div class="md:col-span-1">
+        <label for="email" class="mb-2 block text-sm font-semibold text-emerald-900">
+          Correo electrónico
+        </label>
+        <input id="email" type="email" formControlName="email"
+          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200" />
+        <div class="mt-1 min-h-5">
+          @if (profileForm.controls.email.errors?.['required']) {
+            <small class="text-sm font-medium text-red-700">
+              El correo electrónico es obligatorio.
+            </small>
+          }
+          @if (profileForm.controls.email.errors?.['pattern']) {
+            <small class="text-sm font-medium text-red-700">
+              El correo electrónico no es válido.
+            </small>
+          }
+        </div>
+      </div>
+
+      <div class="md:col-span-1">
+        <label for="cellphone" class="mb-2 block text-sm font-semibold text-emerald-900">
+          Celular
+        </label>
+        <input id="cellphone" type="text" formControlName="cellphone"
+          maxlength="10" minlength="10"
+          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200" />
+        <div class="mt-1 min-h-5">
+          @if (profileForm.controls.cellphone.errors?.['required']) {
+            <small class="text-sm font-medium text-red-700">
+              El número de celular es obligatorio.
+            </small>
+          }
+          @if (profileForm.controls.cellphone.errors?.['pattern']) {
+            <small class="text-sm font-medium text-red-700">
+              El número de celular no es válido.
+            </small>
+          }
+        </div>
+      </div>
+
+      <div class="md:col-span-2 rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+        <label class="mb-3 block text-sm font-semibold text-emerald-900"
+          for="optNotification">
+          ¿Por cuál medio deseas recibir notificaciones?
+        </label>
+        <mat-radio-group aria-label="Seleccionar opción"
+          class="flex flex-col gap-2 sm:flex-row sm:gap-6"
+          [(ngModel)]="optNotification" [ngModelOptions]="{standalone: true}">
+          <mat-radio-button [value]="false">Correo electrónico</mat-radio-button>
+          <mat-radio-button [value]="true">Celular</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </form>
+
+    <div class="mt-6 flex justify-end">
+      <app-buttons [name]="buttonName()" (clickButton)="saveUser()">
+      </app-buttons>
     </div>
-
-    <label for="email">Correo electrónico: </label>
-    <input id="email" type="email" formControlName="email"
-      class="w-full border-2 border-solid" />
-    <div >
-      @if (profileForm.controls.email.errors?.['required']) {
-        <small class="text-red-700 text-md font-medium">
-          El correo electrónico es obligatorio.
-        </small>
-      }
-      @if (profileForm.controls.email.errors?.['pattern']) {
-        <small class="text-red-700 text-md font-medium">
-          El correo electrónico no es válido.
-        </small>
-      }
-    </div>
-
-    <label for="cellphone">Teléfono celular: </label>
-    <input id="cellphone" type="text" formControlName="cellphone"
-      maxlength="10" minlength="10"
-      class="w-full border-2 border-solid" />
-    <div >
-      @if (profileForm.controls.cellphone.errors?.['required']) {
-        <small class="text-red-700 text-md font-medium">
-          El número de celular es obligatorio.
-        </small>
-      }
-      @if (profileForm.controls.cellphone.errors?.['pattern']) {
-        <small class="text-red-700 text-md font-medium">
-          El número de celular no es válido.
-        </small>
-      }
-    </div>
-
-    <label class="mt-5" for="optNotification">
-      ¿Por cuál medio desea recibir las notificación?
-    </label>
-    <br><br>
-    <mat-radio-group aria-label="Seleccionar opción"
-      [(ngModel)]="optNotification" [ngModelOptions]="{standalone: true}">
-      <mat-radio-button [value]="false">Correo electrónico</mat-radio-button>
-      <mat-radio-button [value]="true">Celular</mat-radio-button>
-    </mat-radio-group>
-  </form>
-
-  <div class="">
-    <app-buttons [name]="buttonName()" (clickButton)="saveUser()">
-    </app-buttons>
   </div>
-</div>
+</section>
