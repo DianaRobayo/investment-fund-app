@@ -1,7 +1,13 @@
 <app-header #header></app-header>
 <div class="p-5">
-  @if(listFunds().length > 0) {
-    <app-tables [columns]="columns()" [rows]="listFunds()"
+  <div class="flex justify-end mb-8">
+    <div>
+      <app-buttons [icon]="'add'" (clickButton)="addFunds()"></app-buttons>
+    </div>
+  </div>
+
+  @if(unionRelationUserFund().length > 0) {
+    <app-tables [columns]="columns()" [rows]="unionRelationUserFund()"
       (rowSelected)="onRowSelected($event)">
     </app-tables>
   } @else {

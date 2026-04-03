@@ -18,10 +18,4 @@ export class ListFundService {
   getFundById(id: number | string): Observable<ListFunds[]> {
     return this.http.get<ListFunds[]>(`${this.apiListFunds}?id=${id}`);
   }
-
-  prueba(ids: number[]): Observable<ListFunds[]> {
-    return this.http.post<ListFunds[]>(this.apiListFunds, ids);
-  }
-
-
 }

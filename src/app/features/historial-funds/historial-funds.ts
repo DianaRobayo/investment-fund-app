@@ -3,6 +3,7 @@ import { TableGeneral } from "../../shared/components/table-general/table-genera
 import { HistoryFundService } from '../../core/services/history-fund-service';
 import { HistoryFund } from '../../shared/models/historyFund';
 import { Navbar } from "../../layout/navbar/navbar";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-historial-funds',
@@ -14,7 +15,6 @@ export class HistorialFunds {
 
   readonly columns = signal([
     { field: 'nameFund', title: 'Nombre del fondo' },
-    { field: 'unitsFund', title: 'Unidades agregadas' },
     { field: 'amountFund', title: 'Total de suscripción' },
     { field: 'date', title: 'Fecha' },
     { field: 'subscription', title: 'Suscripción' },
@@ -32,11 +32,14 @@ export class HistorialFunds {
   getListHistorial(): void {
     this.historyFundService.getHistoryFund().subscribe({
       next: (res) => {
-        console.log('res historial', res);
         this.dataHistorialFunds.set(res ?? []);
 
       }, error: (error) => {
-        console.error('Error history', error);
+        Swal.fire({
+          title: 'Error',
+          text: `No se pudo cargar el historial de fondos por ${error}`,
+          icon: 'error'
+        });
         this.dataHistorialFunds.set([]);
       }
     });

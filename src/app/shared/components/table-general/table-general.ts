@@ -2,17 +2,18 @@ import { AfterViewInit, Component, computed, effect, input, output, ViewChild } 
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { TitleCasePipe } from '@angular/common';
+import { NgClass, TitleCasePipe } from '@angular/common';
 
 type TableColumn = {
   field: string;
   title: string;
   icon?: string;
+  colorButton?: string;
 };
 
 @Component({
   selector: 'app-tables',
-  imports: [MatTableModule, MatPaginatorModule, MatIconModule, TitleCasePipe],
+  imports: [MatTableModule, MatPaginatorModule, MatIconModule, TitleCasePipe, NgClass],
   templateUrl: './table-general.html',
   styleUrl: './table-general.sass',
 })
@@ -46,8 +47,7 @@ export class TableGeneral implements AfterViewInit {
     }
   }
 
-  actionButton(element: string): void {
-    console.log('info emitida:', element);
-    this.rowSelected.emit(element);
+  actionButton(element: string, column: string): void {
+    this.rowSelected.emit({element, column});
   }
 }

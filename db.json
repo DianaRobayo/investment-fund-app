@@ -69,49 +69,117 @@
       "email": "d@gmail.com",
       "cellphone": "3118495408",
       "method": false,
-      "id": "FZn3eAOPqyU"
+      "id": "FZn3eAOPqyU",
+      "currentAmount": 500000
     }
   ],
   "userFunds": [
     {
-      "id": "1",
+      "id": "3",
+      "idUser": "2",
+      "idFund": 1
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 1,
+      "id": "zAXzmt8mnDQ"
+    },
+    {
       "idUser": "FZn3eAOPqyU",
       "idFund": 2,
-      "unitsFund": 2
-    },
-    {
-      "id": "3",
-      "idUser": 2,
-      "idFund": 1,
-      "unitsFund": 1
-    },
-    {
-      "id": "-KPA57Ccgvo",
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 3,
-      "unitsFund": 1
+      "id": "zAXzmt8mnD2"
     }
   ],
   "historyFunds": [
     {
       "idUser": "FZn3eAOPqyU",
-      "idFund": 3,
-      "nameFund": "DEUDAPRIVADA",
-      "unitsFund": 1,
-      "amountFund": 50000,
-      "date": "2026-04-02T04:20:43.048Z",
-      "subscription": "✅",
-      "id": "5_hKSOQxpio"
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
+      "amountFund": 250000,
+      "date": "2026-04-03T03:38:43.020Z",
+      "subscription": "Cancelación",
+      "id": "0j86Xs_6wF4"
     },
     {
       "idUser": "FZn3eAOPqyU",
-      "idFund": 2,
-      "nameFund": "FPV_BTG_PACTUAL_ECOPETROL",
-      "unitsFund": 2,
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
       "amountFund": 250000,
-      "date": "2026-04-02T04:20:48.365Z",
-      "subscription": "✅",
-      "id": "OtTNE-12C8Q"
+      "date": "2026-04-03T03:41:05.326Z",
+      "subscription": "Suscripción",
+      "id": "AlTY0mfpk24"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
+      "amountFund": 250000,
+      "date": "2026-04-03T03:42:25.587Z",
+      "subscription": "Suscripción",
+      "id": "jjj_ODlI4js"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
+      "amountFund": 250000,
+      "date": "2026-04-03T03:47:30.259Z",
+      "subscription": "Suscripción",
+      "id": "WYLUoXqu5xI"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
+      "amountFund": 250000,
+      "date": "2026-04-03T03:48:36.220Z",
+      "subscription": "Suscripción",
+      "id": "0a65PFpsreE"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
+      "amountFund": 250000,
+      "date": "2026-04-03T03:49:37.950Z",
+      "subscription": "Suscripción",
+      "id": "y6ZJV7_jdak"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
+      "amountFund": 250000,
+      "date": "2026-04-03T03:52:56.391Z",
+      "subscription": "Suscripción",
+      "id": "1B3eMIDjckQ"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 3,
+      "nameFund": "DEUDAPRIVADA",
+      "amountFund": 50000,
+      "date": "2026-04-03T03:53:25.045Z",
+      "subscription": "Suscripción",
+      "id": "bB6V4pM1b9k"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 3,
+      "nameFund": "DEUDAPRIVADA",
+      "amountFund": 50000,
+      "date": "2026-04-03T03:55:49.971Z",
+      "subscription": "Cancelación",
+      "id": "BLNGl3bDzMs"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 4,
+      "nameFund": "FDO-ACCIONES",
+      "amountFund": 250000,
+      "date": "2026-04-03T03:56:01.312Z",
+      "subscription": "Cancelación",
+      "id": "N5zsuYVraYI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

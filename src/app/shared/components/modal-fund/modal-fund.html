@@ -5,7 +5,7 @@
       {{data.row.nameFund}}
     </div>
     <div class="rounded-full">
-      <button (click)="dialogRef.close()" [tabIndex]="-1"
+      <button (click)="onNoClick()" [tabIndex]="-1"
         class="text-green-950 font-bold py-2 px-4 rounded">
         <mat-icon class="text-green-950">
           close
@@ -42,9 +42,9 @@
       <input id="minAmount" type="number" formControlName="minAmount"
         class="w-full border-2 border-solid" readonly />
 
-      <label for="unitsFund">Unidades: </label>
+      <!-- <label for="unitsFund">Unidades: </label>
       <input id="unitsFund" type="number" formControlName="unitsFund"
-        class="w-full border-2 border-solid" />
+        class="w-full border-2 border-solid" [readonly]="data.type === 'delete'"/>
         @if(fundsForm.invalid && (fundsForm.dirty || fundsForm.touched)){
           <div >
             @if (fundsForm.controls.unitsFund.errors?.['required']) {
@@ -53,14 +53,15 @@
               </small>
             }
           </div>
-        }
+        } -->
 
-      <label for="total">Total: </label>
-      <input id="total" type="number" formControlName="total" class="w-full border-2 border-solid" readonly />
+      <!-- <label for="total">Total: </label>
+      <input id="total" type="number" formControlName="total"
+        class="w-full border-2 border-solid" readonly /> -->
     </form>
 
     <div class="">
-      <app-buttons [name]="'Comprar'" (clickButton)="buyFund()"
+      <app-buttons [name]="buttonName()" (clickButton)="buyFund()"
         [disabled]="fundsForm.invalid">
       </app-buttons>
     </div>

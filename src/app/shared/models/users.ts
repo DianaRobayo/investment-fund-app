@@ -5,4 +5,5 @@ export interface Users {
   cellphone: number;
   email: string;
   method: boolean;
+  currentAmount?: number;
 }

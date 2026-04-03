@@ -31,7 +31,6 @@ export class Profile {
 
   private userService = inject(UserService);
   optNotification: boolean = false; // Valor por defecto para el medio de notificación
-  // readonly userName = signal<string>('');
   readonly dataUser = signal<Users[]>([]);
   readonly buttonName = signal<string>('');
 

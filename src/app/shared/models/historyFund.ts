@@ -3,7 +3,6 @@ export interface HistoryFund {
   idUser: string;
   idFund: number;
   nameFund: string;
-  unitsFund: number;
   amountFund: number;
   date: Date;
   subscription: string;

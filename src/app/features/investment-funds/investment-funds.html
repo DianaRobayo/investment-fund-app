@@ -1,14 +1,7 @@
-<app-header #header></app-header>
+<app-navbar></app-navbar>
 <div class="p-5">
-  <div class="flex justify-end mb-8">
-    <div>
-      <app-buttons [icon]="'add'" (clickButton)="addFunds()"></app-buttons>
-    </div>
-  </div>
-
-  @if(associatedListFunds().length > 0) {
-    <app-tables [columns]="columns()" [rows]="associatedListFunds()"
-      (rowSelected)="onRowSelected($event)">
+  @if(listFunds().length > 0) {
+    <app-tables [columns]="columns()" [rows]="listFunds()">
     </app-tables>
   } @else {
     <p class="text-red-700 text-base font-medium">
