@@ -3,7 +3,9 @@ export interface HistoryFund {
   idUser: string;
   idFund: number;
   nameFund: string;
-  amountFund: number;
+  totalAmount: number;
+  quantityFund: number;
   date: Date;
+  action: string;
   subscription: string;
 }

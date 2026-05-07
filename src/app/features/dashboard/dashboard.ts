@@ -37,8 +37,10 @@ export class Dashboard implements OnInit {
     { field: 'idFund', title: 'ID' },
     { field: 'nameFund', title: 'Nombre del fondo' },
     { field: 'category', title: 'Categoría' },
+    { field: 'quantityFund', title: 'Cantidad' },
     { field: 'minAmount', title: 'Valor de apertura', isCurrency: true },
-    // { field: 'update', title: 'Editar', icon: 'edit', colorButton: 'blue' },
+    { field: 'totalAmount', title: 'Valor total', isCurrency: true },
+    { field: 'update', title: 'Editar', icon: 'edit', colorButton: 'blue' },
     { field: 'delete', title: 'Eliminar', icon: 'delete', colorButton: 'red' },
   ]);
 
@@ -121,6 +123,7 @@ export class Dashboard implements OnInit {
         nameFund: findListFund?.nameFund ?? '',
         category: findListFund?.category ?? '',
         minAmount: findListFund?.minAmount ?? 0,
+        totalAmount: Number(obj.quantityFund) * Number(findListFund?.minAmount ?? 0)
       }
     }));
 
@@ -137,27 +140,30 @@ export class Dashboard implements OnInit {
     if (row.column === 'delete') {
       this.modalDelete(row.element.id, row.element);
     } else if (row.column === 'update') {
-      // this.modalUpdate(row.element);
+      this.modalUpdate(row.element.id, row.element);
     }
   }
 
-  // modalUpdate(row: UnionRelationUserFund): void {
-  //   const dialogRef = this.dialog.open(ModalFund, {
-  //     data: {
-  //       type: 'edit',
-  //       row,
-  //       currentAmount: this.temporaryAmount()
-  //     }
-  //   });
+  modalUpdate(id: string, row: UnionRelationUserFund): void {
+    console.log('row', row)
+    console.log('temporaryAmount', this.temporaryAmount())
+    const dialogRef = this.dialog.open(ModalFund, {
+      data: {
+        type: 'edit',
+        id,
+        row,
+        currentAmount: this.temporaryAmount() + (row.totalAmount ?? 0),
+      }
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed', result);
-  //     if (result !== undefined) {
-  //       this.getDataUserFunds();
-  //       this.calculateCurrentAmount();
-  //     }
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      if (result !== undefined) {
+        this.getDataUserFunds();
+        this.fundDataService.updateAvailable();
+      }
+    });
+  }
 
   modalDelete(id: string, row: UnionRelationUserFund): void {
     const dialogRef = this.dialog.open(ModalFund, {
@@ -181,6 +187,7 @@ export class Dashboard implements OnInit {
    * Método que suscribe el usuario a un fondo de inversión
    **/
   addFunds() {
+    console.log('this.temporaryAmount()', this.temporaryAmount())
     const dialogRef = this.dialog.open(ModalFund, {
       data: {
         type: 'add',

@@ -16,8 +16,10 @@ export class HistorialFunds {
 
   readonly columns = signal([
     { field: 'nameFund', title: 'Nombre del fondo' },
-    { field: 'amountFund', title: 'Total de suscripción', isCurrency: true },
+    { field: 'quantityFund', title: 'Cantidad de suscripción' },
+    { field: 'totalAmount', title: 'Total de suscripción', isCurrency: true },
     { field: 'date', title: 'Fecha' },
+    { field: 'action', title: 'Acción' },
     { field: 'subscription', title: 'Suscripción' },
   ]);
 
@@ -34,7 +36,8 @@ export class HistorialFunds {
   getListHistorial(): void {
     this.historyFundService.getHistoryFund().subscribe({
       next: (res) => {
-        this.dataHistorialFunds.set(res ?? []);
+        res.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        this.dataHistorialFunds.set((res) ?? []);
 
       }, error: (error) => {
         Swal.fire({

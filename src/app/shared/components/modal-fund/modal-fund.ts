@@ -47,22 +47,25 @@ export class ModalFund {
   fundsService = inject(FundDataService);
   fundDataService = inject(FundDataService);
   historyFundService = inject(HistoryFundService);
+
+  readonly dataRelationUserFund = signal<RelationUserFund[]>([]);
   listFunds = signal<ListFunds[]>(this.data.listFunds ?? []);
   buttonName = signal(this.getButtonName());
-  readonly dataRelationUserFund = signal<RelationUserFund[]>([]);
+
   fundsForm = new FormGroup({
     idFund: new FormControl<number | null>(null),
     nameFund: new FormControl<string | null>(null),
-    // unitsFund: new FormControl<number | null>(null, [Validators.required, Validators.min(1)]),
+    quantityFund: new FormControl<number | null>(null, [Validators.required, Validators.min(1)]),
     minAmount: new FormControl<number>(0),
-    // total: new FormControl<number>(0),
+    totalAmount: new FormControl<number>(0),
   });
 
   constructor() {
     this.dialogRef.disableClose = true;
-    this.dialogRef.updateSize('700px', '300px');
+    this.dialogRef.addPanelClass('modal-fund-dialog');
     this.setterDataForm();
     this.changeFund();
+    this.calculateTotal();
 
     effect(() => {
       this.dataRelationUserFund.set(this.fundDataService.dataUserFund());
@@ -84,6 +87,7 @@ export class ModalFund {
     if (this.data.type === 'add') {
       this.fundsForm.controls.idFund.addValidators(Validators.required);
     } else {
+      console.log('this.data.row', this.data.row)
       this.fundsForm.patchValue(this.data.row);
       this.fundDataService.getDataUserByFund('FZn3eAOPqyU', Number(this.data.row.idFund));
     }
@@ -114,18 +118,18 @@ export class ModalFund {
   /***
    * Metodo que calcula el valor total dependiendo de las unidades agregadas
   **/
-/*   calculateTotal() {
-    this.fundsForm.controls.unitsFund.valueChanges
+  calculateTotal() {
+    this.fundsForm.controls.quantityFund.valueChanges
       .pipe(
-        startWith(this.fundsForm.value.unitsFund ?? 0),
+        startWith(this.fundsForm.value.quantityFund ?? 0),
         takeUntilDestroyed()
       ).subscribe((res) => {
         if (res) {
           const total = Number(res) * Number(this.fundsForm.value.minAmount);
-          this.fundsForm.controls.total.setValue(total);
+          this.fundsForm.controls.totalAmount.setValue(total);
         }
       });
-  } */
+  }
 
   /***
    * Metodo que valida si el usuario tiene fondos suficientes para adquirir
@@ -133,7 +137,7 @@ export class ModalFund {
    **/
   buyFund() {
     if (this.fundsForm.valid) {
-      const total = this.fundsForm.value.minAmount ?? 0;
+      const total = this.fundsForm.value.totalAmount ?? 0;
 
       // Compara el total con el monto actual del usuario
       if (total > this.data.currentAmount && this.data.type !== 'delete') {
@@ -151,7 +155,7 @@ export class ModalFund {
 
         this.dialogRef.close({
           idFund: this.data.row.id,
-          // units: this.fundsForm.value.unitsFund,
+          units: this.fundsForm.value.quantityFund,
           total
         });
       }
@@ -169,7 +173,7 @@ export class ModalFund {
 
         this.dialogRef.close({
           idFund: this.fundsForm.value.idFund ?? this.data.row.idFund,
-          // units: this.fundsForm.value.unitsFund,
+          units: this.fundsForm.value.quantityFund,
           total
         });
       }
@@ -186,29 +190,33 @@ export class ModalFund {
   saveData() {
     const idUser = this.data.row.idUser;
     const idFund = Number(this.fundsForm.value.idFund);
-    // const unitsFund = Number(this.fundsForm.value.unitsFund);
-    // const totalFund = Number(this.fundsForm.value.total);
+    const quantityFund = Number(this.fundsForm.value.quantityFund);
+    const totalAmount = Number(this.fundsForm.value.totalAmount);
 
-    /* if (this.data.type === 'edit') {
-      this.updateData(idUser, idFund, unitsFund, totalFund);
-    } else  */
-    if (this.data.type === 'delete') {
-      this.modalDelete(String(this.data.id));
-    } else {
-      this.modalCreate(idUser, idFund);
+    switch (this.data.type) {
+      case 'edit':
+        this.updateData(idUser, idFund, quantityFund);
+        break;
+      case 'delete':
+        this.modalDelete(String(this.data.id));
+        break;
+      default:
+        this.modalCreate(idUser, idFund, quantityFund);
+        break;
     }
 
     this.addRegisterHistory();
   }
 
-  updateData(idUser: string, idFund: number) {
+  updateData(idUser: string, idFund: number, quantityFund: number): void {
     const rowId = this.data.row.id;
     if (!rowId) return;
 
     const body: RelationUserFund = {
       id: rowId,
       idUser,
-      idFund
+      idFund,
+      quantityFund
     };
 
     this.fundsService.updateDataUserFunds(rowId, body).subscribe({
@@ -241,10 +249,11 @@ export class ModalFund {
     });
   }
 
-  modalCreate(idUser: string, idFund: number): void {
+  modalCreate(idUser: string, idFund: number, unitsFund: number): void {
     const body: RelationUserFund = {
       idUser,
-      idFund
+      idFund,
+      quantityFund: unitsFund
     };
 
     this.fundsService.addDataUserFunds(body).subscribe({
@@ -260,13 +269,27 @@ export class ModalFund {
   }
 
   addRegisterHistory() {
+    let action: string = '';
+    switch (this.data.type) {
+      case 'edit':
+        action = 'Actualizó';
+        break;
+      case 'delete':
+        action = 'Eliminó';
+        break;
+      default:
+        action = 'Agregó';
+        break;
+    }
     const subscriptionType = this.data.type === 'delete' ? '❌ Cancelación' : '✅ Suscripción';
     const bodyHistory: HistoryFund = {
       idUser: this.data.row.idUser,
       idFund: Number(this.fundsForm.value.idFund),
       nameFund: String(this.fundsForm.value.nameFund),
-      amountFund: Number(this.fundsForm.value.minAmount),
+      totalAmount: Number(this.fundsForm.value.totalAmount),
+      quantityFund: Number(this.fundsForm.value.quantityFund),
       date: new Date(),
+      action: action,
       subscription: subscriptionType
     };
 

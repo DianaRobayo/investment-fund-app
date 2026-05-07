@@ -23,7 +23,7 @@ export class FundDataService {
   constructor(private http: HttpClient) { }
 
   getTotalInvested(dataRelation: UnionRelationUserFund[]) {
-    const total = dataRelation.reduce((acc, item) => acc + (item.minAmount ?? 0), 0);
+    const total = dataRelation.reduce((acc, item) => acc + (item.totalAmount ?? 0), 0);
     this.currentFundValueSignal.set(total);
     const idUser = dataRelation[0]?.idUser ?? 'FZn3eAOPqyU';
     this.updateAvailable(idUser);

@@ -51,17 +51,14 @@
     {
       "id": "3",
       "idUser": "2",
-      "idFund": 1
+      "idFund": 1,
+      "quantityFund": 2
     },
     {
+      "id": "oWI1UGurfLw",
       "idUser": "FZn3eAOPqyU",
-      "idFund": 2,
-      "id": "tXY1XltUS1M"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 3,
-      "id": "koLnIXR7iyk"
+      "idFund": 1,
+      "quantityFund": 3
     }
   ],
   "historyFunds": [
@@ -69,55 +66,34 @@
       "idUser": "FZn3eAOPqyU",
       "idFund": 1,
       "nameFund": "FPV_BTG_PACTUAL_RECAUDADORA",
-      "amountFund": 75000,
-      "date": "2026-04-03T17:35:57.470Z",
+      "totalAmount": 225000,
+      "quantityFund": 3,
+      "date": "2026-05-07T23:24:08.418Z",
+      "action": "Actualizó",
       "subscription": "✅ Suscripción",
-      "id": "trUwRGGNJb0"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T17:36:35.368Z",
-      "subscription": "✅ Suscripción",
-      "id": "92eKUAqoCgE"
+      "id": "xqkrm5cZ5OA"
     },
     {
       "idUser": "FZn3eAOPqyU",
       "idFund": 2,
       "nameFund": "FPV_BTG_PACTUAL_ECOPETROL",
-      "amountFund": 125000,
-      "date": "2026-04-03T17:36:52.386Z",
+      "totalAmount": 250000,
+      "quantityFund": 2,
+      "date": "2026-05-07T23:24:15.195Z",
+      "action": "Agregó",
       "subscription": "✅ Suscripción",
-      "id": "kB9Pc_og-uo"
+      "id": "PufQ7DT0APo"
     },
     {
       "idUser": "FZn3eAOPqyU",
-      "idFund": 3,
-      "nameFund": "DEUDAPRIVADA",
-      "amountFund": 50000,
-      "date": "2026-04-03T17:37:16.768Z",
-      "subscription": "✅ Suscripción",
-      "id": "7IfV0uxwJDs"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 4,
-      "nameFund": "FDO-ACCIONES",
-      "amountFund": 250000,
-      "date": "2026-04-03T17:37:43.990Z",
-      "subscription": "❌Cancelación",
-      "id": "QxXHPBseIIE"
-    },
-    {
-      "idUser": "FZn3eAOPqyU",
-      "idFund": 1,
-      "nameFund": "FPV_BTG_PACTUAL_RECAUDADORA",
-      "amountFund": 75000,
-      "date": "2026-04-03T18:39:21.750Z",
+      "idFund": 2,
+      "nameFund": "FPV_BTG_PACTUAL_ECOPETROL",
+      "totalAmount": 250000,
+      "quantityFund": 2,
+      "date": "2026-05-07T23:24:25.217Z",
+      "action": "Eliminó",
       "subscription": "❌ Cancelación",
-      "id": "g9vDKmOujd4"
+      "id": "5PNR2MFyo-o"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

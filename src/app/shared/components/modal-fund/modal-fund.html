@@ -1,8 +1,8 @@
 <div class="flex flex-col max-h-screen p-3 -m-2">
   <div class="flex flex-0 items-center justify-between h-16 md:pr-3 pl-3 mt-3 mb-8 md:mb-4 text-white">
-    <div class="text-xl font-bold text-emerald-900">
+    <h1 class="text-xl font-bold text-emerald-900">
       {{data.row.nameFund}}
-    </div>
+    </h1>
     <div class="rounded-full">
       <button (click)="onNoClick()" [tabIndex]="-1"
         class="text-emerald-950 font-bold py-2 px-4 rounded">
@@ -16,53 +16,67 @@
   <div class=" p-3 ">
     <form [formGroup]="fundsForm" class="grid grid-cols-1 gap-x-2 gap-y-4 md:grid-cols-2">
       @if (data.listFunds && data.listFunds.length > 0) {
-        <label for="idFund" class="block text-sm font-semibold text-emerald-900">
-          Fondo:
-        </label>
-        <select id="idFund" formControlName="idFund"
-          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200">
-          <option value="">Seleccione un fondo</option>
-          @for (fund of data.listFunds; track fund.idFund) {
-            <option [value]="fund.idFund">
-              {{fund.nameFund}}
-            </option>
-          }
-        </select>
-
-        @if(fundsForm.invalid && (fundsForm.dirty || fundsForm.touched)){
-          <div >
-            @if (fundsForm.controls.idFund.errors?.['required']) {
-              <small class="text-sm font-medium text-red-700">
-                El fondo es obligatorio.
-              </small>
+        <div>
+          <label for="idFund" class="block text-sm font-semibold text-emerald-900">
+            Fondo:
+          </label>
+          <select id="idFund" formControlName="idFund"
+            class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200">
+            <option value="">Seleccione un fondo</option>
+            @for (fund of data.listFunds; track fund.idFund) {
+              <option [value]="fund.idFund">
+                {{fund.nameFund}}
+              </option>
             }
-          </div>
-        }
+          </select>
+
+          @if(fundsForm.invalid && (fundsForm.dirty || fundsForm.touched)){
+            <div >
+              @if (fundsForm.controls.idFund.errors?.['required']) {
+                <small class="text-sm font-medium text-red-700">
+                  El fondo es obligatorio.
+                </small>
+              }
+            </div>
+          }
+        </div>
       }
 
-      <label for="minAmount" class="block text-sm font-semibold text-emerald-900">
-        Valor Unitario:
-      </label>
-      <input id="minAmount" type="number" formControlName="minAmount"
-        class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
-        readonly />
+      <div>
+        <label for="minAmount" class="block text-sm font-semibold text-emerald-900">
+          Valor Unitario:
+        </label>
+        <input id="minAmount" type="number" formControlName="minAmount"
+          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+          readonly />
+      </div>
 
-      <!-- <label for="unitsFund">Unidades: </label>
-      <input id="unitsFund" type="number" formControlName="unitsFund"
-        class="w-full border-2 border-solid" [readonly]="data.type === 'delete'"/>
-        @if(fundsForm.invalid && (fundsForm.dirty || fundsForm.touched)){
-          <div >
-            @if (fundsForm.controls.unitsFund.errors?.['required']) {
-              <small class="text-sm font-medium text-red-700">
-                El número de unidades es obligatorio.
-              </small>
-            }
-          </div>
-        } -->
+      <div>
+        <label for="quantityFund" class="block text-sm font-semibold text-emerald-900">
+          Unidades:
+        </label>
+        <input id="quantityFund" type="number" formControlName="quantityFund"
+          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+          [readonly]="data.type === 'delete'"/>
+          @if(fundsForm.invalid && (fundsForm.dirty || fundsForm.touched)){
+            <div >
+              @if (fundsForm.controls.quantityFund.errors?.['required']) {
+                <small class="text-sm font-medium text-red-700">
+                  El número de unidades es obligatorio.
+                </small>
+              }
+            </div>
+          }
+      </div>
 
-      <!-- <label for="total">Total: </label>
-      <input id="total" type="number" formControlName="total"
-        class="w-full border-2 border-solid" readonly /> -->
+      <div>
+        <label for="totalAmount" class="block text-sm font-semibold text-emerald-900">
+          Total:
+        </label>
+        <input id="totalAmount" type="number" formControlName="totalAmount"
+          class="w-full rounded-lg border border-emerald-200 px-3 py-2 text-emerald-950 shadow-sm outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200"
+          readonly />
+      </div>
     </form>
 
     <div class="flex justify-center mt-4">
