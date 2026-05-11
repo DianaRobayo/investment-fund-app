@@ -18,9 +18,9 @@ export class HistorialFunds {
     { field: 'nameFund', title: 'Nombre del fondo' },
     { field: 'quantityFund', title: 'Cantidad de suscripción' },
     { field: 'totalAmount', title: 'Total de suscripción', isCurrency: true },
-    { field: 'date', title: 'Fecha' },
-    { field: 'action', title: 'Acción' },
     { field: 'subscription', title: 'Suscripción' },
+    { field: 'date', title: 'Fecha', isDate: true },
+    { field: 'action', title: 'Acción' }
   ]);
 
   readonly dataHistorialFunds = signal<HistoryFund[]>([]);

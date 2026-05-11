@@ -59,6 +59,12 @@
       "idUser": "FZn3eAOPqyU",
       "idFund": 1,
       "quantityFund": 3
+    },
+    {
+      "id": "DdYM1lZZHJ8",
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 3,
+      "quantityFund": 3
     }
   ],
   "historyFunds": [
@@ -94,6 +100,28 @@
       "action": "Eliminó",
       "subscription": "❌ Cancelación",
       "id": "5PNR2MFyo-o"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 3,
+      "nameFund": "DEUDAPRIVADA",
+      "totalAmount": 100000,
+      "quantityFund": 2,
+      "date": "2026-05-11T14:36:45.026Z",
+      "action": "Agregó",
+      "subscription": "✅ Suscripción",
+      "id": "MybL7F4k-s4"
+    },
+    {
+      "idUser": "FZn3eAOPqyU",
+      "idFund": 3,
+      "nameFund": "DEUDAPRIVADA",
+      "totalAmount": 150000,
+      "quantityFund": 3,
+      "date": "2026-05-11T14:36:54.595Z",
+      "action": "Actualizó",
+      "subscription": "✅ Suscripción",
+      "id": "aKo6VwTyHV8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

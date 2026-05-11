@@ -1,12 +1,19 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UserService } from './user-service';
+import { provideZonelessChangeDetection } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('UserService', () => {
   let service: UserService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers:[
+        provideZonelessChangeDetection(),
+        provideHttpClient(),
+      ]
+    });
     service = TestBed.inject(UserService);
   });
 

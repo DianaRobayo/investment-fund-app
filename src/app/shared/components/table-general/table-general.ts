@@ -2,7 +2,7 @@ import { AfterViewInit, Component, computed, effect, input, output, ViewChild } 
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { CurrencyPipe, NgClass, TitleCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, NgClass, TitleCasePipe } from '@angular/common';
 
 type TableColumn = {
   field: string;
@@ -10,6 +10,7 @@ type TableColumn = {
   icon?: string;
   colorButton?: string;
   isCurrency?: boolean;
+  isDate?: boolean;
 };
 
 @Component({
@@ -20,6 +21,7 @@ type TableColumn = {
     MatIconModule,
     TitleCasePipe,
     CurrencyPipe,
+    DatePipe,
     NgClass
   ],
   templateUrl: './table-general.html',

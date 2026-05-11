@@ -1,9 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, ComponentFixtureAutoDetect } from '@angular/core/testing';
 import { DebugElement, provideZonelessChangeDetection, signal } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideRouter } from '@angular/router';
-import { ComponentFixtureAutoDetect } from '@angular/core/testing';
 
 import { Dashboard } from './dashboard';
 import { FundDataService } from '../../core/services/fund-data-service';
@@ -83,7 +82,6 @@ describe('Dashboard', () => {
 
   /******************    Methods and services tests   **********************/
   it('search list users by fund', () => {
-    const service = TestBed.inject(FundDataService);
     const relation: RelationUserFund[] = [
       { id: '1', idUser: 'FZn3eAOPqyU', idFund: 1, quantityFund: 2 },
       { id: '2', idUser: 'FZn3eAOPqyU', idFund: 3, quantityFund: 5 }

@@ -87,7 +87,6 @@ export class ModalFund {
     if (this.data.type === 'add') {
       this.fundsForm.controls.idFund.addValidators(Validators.required);
     } else {
-      console.log('this.data.row', this.data.row)
       this.fundsForm.patchValue(this.data.row);
       this.fundDataService.getDataUserByFund('FZn3eAOPqyU', Number(this.data.row.idFund));
     }

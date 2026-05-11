@@ -145,8 +145,6 @@ export class Dashboard implements OnInit {
   }
 
   modalUpdate(id: string, row: UnionRelationUserFund): void {
-    console.log('row', row)
-    console.log('temporaryAmount', this.temporaryAmount())
     const dialogRef = this.dialog.open(ModalFund, {
       data: {
         type: 'edit',
@@ -157,7 +155,6 @@ export class Dashboard implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
       if (result !== undefined) {
         this.getDataUserFunds();
         this.fundDataService.updateAvailable();
@@ -187,7 +184,6 @@ export class Dashboard implements OnInit {
    * Método que suscribe el usuario a un fondo de inversión
    **/
   addFunds() {
-    console.log('this.temporaryAmount()', this.temporaryAmount())
     const dialogRef = this.dialog.open(ModalFund, {
       data: {
         type: 'add',

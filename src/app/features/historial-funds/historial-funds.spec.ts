@@ -19,8 +19,7 @@ describe('HistorialFunds', () => {
         provideHttpClientTesting(),
         provideRouter([])
       ]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HistorialFunds);
     component = fixture.componentInstance;
